@@ -1,0 +1,12 @@
+*.pyc
+*pyo
+*.log
+*.db
+*~
+*.bak
+*.tmp
+
+db/*
+env/*
+static/*
+uploads/*
