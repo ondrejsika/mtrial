@@ -7,6 +7,10 @@
 
 from _settings import *
 
+# libs
+INSTALLED_APPS += (
+)
+
 # external apps
 INSTALLED_APPS += (
 )
