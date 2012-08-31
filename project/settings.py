@@ -19,9 +19,6 @@ INSTALLED_APPS += (
 INSTALLED_APPS += (
 )
 
-# ENV settings
-ENV_ALL_DIRS = []
-
 # Django settings
 DEBUG = True
 

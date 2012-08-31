@@ -7,10 +7,10 @@
 import os
 import sys
 
-from django.conf import settings
+import settings
 
 if settings.ENV_ALL_DIRS:
-    for directory in ENV_ALL_DIRS:
+    for directory in settings.ENV_ALL_DIRS:
         try:
             sys.path.index(directory)
         except ValueError:

@@ -49,3 +49,8 @@ try: sys.path.index(EXTERNAL_APPS)
 except ValueError: sys.path.insert(0, EXTERNAL_APPS)
 try: sys.path.index(LOCAL_APPS)
 except ValueError:sys.path.insert(0, LOCAL_APPS)
+
+# add to env path
+import platform
+version = platform.python_version()[:3]
+ENV_ALL_DIRS.append(normpath(PROJECT_ROOT, "env", "lib", "python%s"%version, "site-packages"))
