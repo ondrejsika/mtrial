@@ -7,6 +7,7 @@
 import os
 import sys
 
+sys.path.append(os.path.normpath(os.path.abspath(os.path.join(__file__, ".."))))
 import settings
 
 if settings.ENV_ALL_DIRS:
