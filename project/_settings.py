@@ -33,6 +33,7 @@ STATICFILES_DIRS = [normpath(__file__, "..", "..", "assets")]
 STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder','django.contrib.staticfiles.finders.AppDirectoriesFinder',)
 SECRET_KEY = ''
 TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',)
+TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth', 'django.core.context_processors.i18n', 'django.core.context_processors.request', 'django.core.context_processors.media', 'django.core.context_processors.static', )
 MIDDLEWARE_CLASSES = ('django.middleware.common.CommonMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.middleware.csrf.CsrfViewMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware','django.contrib.flatpages.middleware.FlatpageFallbackMiddleware')
 ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
