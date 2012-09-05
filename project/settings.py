@@ -8,16 +8,16 @@
 from _settings import *
 
 # libs
-INSTALLED_APPS += (
-)
+INSTALLED_APPS += [
+]
 
 # external apps
-INSTALLED_APPS += (
-)
+INSTALLED_APPS += [
+]
 
 # local apps
-INSTALLED_APPS += (
-)
+INSTALLED_APPS += [
+]
 
 # Django settings
 DEBUG = True
