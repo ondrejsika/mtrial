@@ -15,4 +15,4 @@ def clone(path, url):
     os.system("git clone %s %s"%(url, path))
 
 # START
-clone("scripts/auto_git_update", "https://bitbucket.org/sikaondrej/djangovoid.git")
+clone("scripts/auto_git_update", "https://bitbucket.org/sikaondrej/django-auto_git_update.git")
