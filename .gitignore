@@ -12,3 +12,4 @@ static/*
 uploads/*
 
 !.gitkeep
+.git
