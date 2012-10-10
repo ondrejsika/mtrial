@@ -40,9 +40,9 @@ WSGI_APPLICATION = 'wsgi.application'
 TEMPLATE_DIRS = [normpath(__file__, "..", "..", "templates")]
 INSTALLED_APPS = ['django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.sites','django.contrib.messages','django.contrib.staticfiles','django.contrib.admin','django.contrib.flatpages', "south", ]
 LOGGING = {'version': 1, 'disable_existing_loggers': False, 'filters': {'require_debug_false': {'()': 'django.utils.log.RequireDebugFalse'}},'handlers': {'mail_admins': {'level': 'ERROR','filters': ['require_debug_false'],'class': 'django.utils.log.AdminEmailHandler'}},'loggers': {'django.request': {'handlers': ['mail_admins'],'level': 'ERROR','propagate': True,},}}
-ENV_ALL_DIRS = []
-EXTERNAL_APPS = normpath(__file__, "..", "..", "external_apps")
-LOCAL_APPS =  normpath(__file__, "..", "..", "local_apps")
+EXTERNAL_APPS = normpath(__file__, "..", "..", "django_apps", "external_apps")
+LOCAL_APPS =  normpath(__file__, "..", "..", "django_apps", "local_apps")
+LOCAL_LIB =  normpath(__file__, "..", "..", "django_apps", "lib")
 ADMIN_URLS = True
 
 # add to sys path
@@ -50,8 +50,5 @@ try: sys.path.index(EXTERNAL_APPS)
 except ValueError: sys.path.insert(0, EXTERNAL_APPS)
 try: sys.path.index(LOCAL_APPS)
 except ValueError:sys.path.insert(0, LOCAL_APPS)
-
-# add to env path
-import platform
-version = platform.python_version()[:3]
-ENV_ALL_DIRS.append(normpath(PROJECT_ROOT, "env", "lib", "python%s"%version, "site-packages"))
+try: sys.path.index(LOCAL_LIB)
+except ValueError:sys.path.insert(0, LOCAL_LIB)

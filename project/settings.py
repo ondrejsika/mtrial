@@ -5,7 +5,7 @@
 #           http://ondrejsika.com
 
 
-from _settings import *
+from _dv_settings import *
 
 # libs
 INSTALLED_APPS += [

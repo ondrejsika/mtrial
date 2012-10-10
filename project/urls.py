@@ -4,7 +4,7 @@
 #           sika.ondrej@gmail.com
 #           http://ondrejsika.com
 
-from _urls import *
+from _dv_urls import *
 
 # libs urls
 urlpatterns += patterns('', 

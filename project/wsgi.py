@@ -8,15 +8,4 @@ import os
 import sys
 
 sys.path.append(os.path.normpath(os.path.abspath(os.path.join(__file__, ".."))))
-import settings
-
-if settings.ENV_ALL_DIRS:
-    for directory in settings.ENV_ALL_DIRS:
-        try:
-            sys.path.index(directory)
-        except ValueError:
-            sys.path.insert(0, directory)
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+from _dv_wsgi import *
