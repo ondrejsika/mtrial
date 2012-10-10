@@ -17,7 +17,7 @@ import virtualenv
 
 ### START OF SCRIPT
 
-s("virtualenv env")
+s("virtualenv %s"%normpath(PROJECT_ROOT, "env"))
 
 pip = normpath(PROJECT_ROOT, "env/bin/pip")
 requires = normpath(PROJECT_ROOT, "_dv_djangovoid/setup/requires.txt")
