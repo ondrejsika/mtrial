@@ -5,5 +5,4 @@
 #           http://ondrejsika.com
 
 
-from _dv_settings import *
-from _dv_djangovoid.extensions.settings import *
+### IMPORT EXTENSIONS URLS
