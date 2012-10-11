@@ -5,7 +5,7 @@
 #           http://ondrejsika.com
 
 
-PATH_TO_ROOT = "../.."
+PATH_TO_ROOT = ".."
 
 import os, sys
 normpath = lambda *args: os.path.normpath(os.path.abspath(os.path.join(*args)))
