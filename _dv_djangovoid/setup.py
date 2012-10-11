@@ -21,7 +21,7 @@ s("virtualenv %s"%normpath(PROJECT_ROOT, "env"))
 
 pip = normpath(PROJECT_ROOT, "env/bin/pip")
 requires = normpath(PROJECT_ROOT, "_dv_djangovoid/setup/requires.txt")
-requires_ext = normpath(PROJECT_ROOT, "project/extension/setup/requires.txt")
+requires_ext = normpath(PROJECT_ROOT, "project/extensions/setup/requires.txt")
 
 s("%(pip)s install -r %(requires)s"%{"pip": pip, "requires":requires, })
 s("%(pip)s install -r %(requires)s"%{"pip": pip, "requires":requires_ext, })
