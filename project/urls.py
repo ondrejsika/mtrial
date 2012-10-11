@@ -5,6 +5,7 @@
 #           http://ondrejsika.com
 
 from _dv_urls import *
+from _dv_urls_extensions import *
 
 # libs urls
 urlpatterns += patterns('', 

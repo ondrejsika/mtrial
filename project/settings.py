@@ -6,6 +6,7 @@
 
 
 from _dv_settings import *
+from _dv_settings_extensions import *
 
 # libs
 INSTALLED_APPS += [

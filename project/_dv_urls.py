@@ -5,21 +5,21 @@
 #           http://ondrejsika.com
 
 from django.conf.urls import patterns, include, url
-from django.conf import settings
+from settings import *
 
 urlpatterns = patterns('',)
 
-if settings.DEBUG:
+if DEBUG:
     urlpatterns += patterns('',
         url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
+            'document_root': MEDIA_ROOT,
         }),
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.STATIC_ROOT,
+            'document_root': STATIC_ROOT,
         }),
    )
 
-if settings.ADMIN_URLS:
+if ADMIN_URLS:
     from django.contrib import admin
 
     admin.autodiscover()

@@ -10,6 +10,7 @@ import sys
 
 # helpers fce
 normpath = lambda *args: os.path.normpath(os.path.abspath(os.path.join(*args)))
+execfile_ = lambda path, *args, **kwargs: execfile(path, dict(__file__=path))
 
 # default settings
 PROJECT_ROOT = normpath(__file__, "..", "..")
@@ -46,6 +47,8 @@ LOCAL_LIB =  normpath(__file__, "..", "..", "django_apps", "lib")
 ADMIN_URLS = True
 
 # add to sys path
+try: sys.path.index(PROJECT_ROOT)
+except ValueError: sys.path.insert(0, PROJECT_ROOT)
 try: sys.path.index(EXTERNAL_APPS)
 except ValueError: sys.path.insert(0, EXTERNAL_APPS)
 try: sys.path.index(LOCAL_APPS)
