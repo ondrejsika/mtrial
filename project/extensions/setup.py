@@ -12,12 +12,12 @@ import sys
 s = lambda cmd: os.system(cmd)
 normpath = lambda *args: os.path.normpath(os.path.abspath(os.path.join(*args)))
 execfile_ = lambda path, *args, **kwargs: execfile(path, dict(__file__=path))
-PROJECT_ROOT = normpath(__file__, "..", "..")
+PROJECT_ROOT = normpath(__file__, "..", "..", "..")
 
 ### START OF SCRIPT
 print "> PROJECT_ROOT/_dv_djnagovoid/extensions/setup.py"
 
 pip = normpath(PROJECT_ROOT, "env/bin/pip")
-requires = normpath(PROJECT_ROOT, "_dv_djangovoid/extensions/setup/requires.txt")
+requires_ext = normpath(PROJECT_ROOT, "project/extensions/setup/requires.txt")
 
-s("%(pip)s install -r %(requires)s"%{"pip": pip, "requires":requires, })
+s("%(pip)s install -r %(requires)s"%{"pip": pip, "requires":requires_ext, })
