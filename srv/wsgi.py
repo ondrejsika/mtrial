@@ -4,7 +4,13 @@
 #           sika.ondrej@gmail.com
 #           http://ondrejsika.com
 
-from settings import *
+import os
+import sys
+
+normpath = lambda *args: os.path.normpath(os.path.abspath(os.path.join(*args)))
+
+PROJECT_ROOT = normpath(__file__, "../..")
+sys.path.append(PROJECT_ROOT)
 
 # BEGIN activacte virtualenv
 try:
@@ -14,6 +20,6 @@ except IOError:
     print "E: virtualenv must be installed to PROJECT_ROOT/env"
 # END activacte virtualenv
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings_prod")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "srv.settings_prod")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
