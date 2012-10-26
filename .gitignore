@@ -1,15 +1,8 @@
 *.pyc
-*pyo
-*.log
-*.db
-*~
-*.bak
-*.tmp
+*.pyo
 
-db/*
 env/*
-static/*
-uploads/*
-
-!.gitkeep
-.git
+app/static/*
+app/uploads/*
+app/tmp/*
+app/db/*

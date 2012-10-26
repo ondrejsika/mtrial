@@ -14,6 +14,6 @@ except IOError:
     print "E: virtualenv must be installed to PROJECT_ROOT/env"
 # END activacte virtualenv
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings_prod")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
