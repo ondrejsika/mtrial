@@ -12,6 +12,8 @@ normpath = lambda *args: os.path.normpath(os.path.abspath(os.path.join(*args)))
 PROJECT_ROOT = normpath(__file__, "../..")
 sys.path.append(PROJECT_ROOT)
 
+import srv.settings
+
 # BEGIN activacte virtualenv
 try:
     activate_path = normpath(PROJECT_ROOT, 'env/bin/activate_this.py')
