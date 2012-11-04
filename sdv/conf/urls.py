@@ -1,9 +1,9 @@
 if DEBUG:
     urlpatterns += patterns('',
-        url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {
+        url(r'^static/uploads/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': MEDIA_ROOT,
         }),
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+        url(r'^static/static/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': STATIC_ROOT,
         }),
    )
