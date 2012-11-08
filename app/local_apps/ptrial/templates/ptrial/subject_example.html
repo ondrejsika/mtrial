@@ -1,7 +1,8 @@
 {%extends "ptrial/base.html"%}
 {% block base_content %}
 <ul class="breadcrumb">
-  <li><a href="/">pTrial</a> </li>
+  <li><a href="/">pTrial</a> <span class="divider">/</span></li>
+  <li><a href="{% url ptrial.subject.example subject.uk %}">Příklady</a> </li>
 </ul>
 <h1>{{subject.name}} příklady</h1>
 <div class="row-fluid">
