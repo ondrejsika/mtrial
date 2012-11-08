@@ -68,8 +68,31 @@ class Example(models.Model):
     procedure = models.TextField(blank=True, null=True)
     result = models.TextField(blank=True, null=True)
 
+    def get_nav(self, length=5):
+        n = self.number
+        related_examples = self.category.example_set.order_by("number")
+        if related_examples.count() <= length:
+            return related_examples
+        if n < 3:
+            return related_examples[:5]
+        if n > related_examples.count()-3:
+            return related_examples[4:]
+        return related_examples[n-3:n+2]
+
+    def get_next(self):
+        try:
+            return Example.objects.get(category=self.category, number=self.number+1)
+        except Example.DoesNotExist:
+            return None
+
+    def get_prev(self):
+        try:
+            return Example.objects.get(category=self.category, number=self.number-1)
+        except Example.DoesNotExist:
+            return None
+
     def __unicode__(self):
-        return u"%s (%i)" % (self.category, self.pk, )
+        return u"%s (%i)" % (self.category, self.number, )
 
     class Meta:
         unique_together = (("number", "category"), )

@@ -28,20 +28,26 @@
             <div class="pagination">
                 <ul>
                   <li><a href="#">«</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li class="active"><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">6</a></li>
+                    {% for obj in example.get_nav %}
+                    <li {% if obj == example %}class="active"{%endif%}><a href="{% url ptrial.r.example obj.pk %}">{{obj.number}}</a></li>
+                    {% endfor %}
                   <li><a href="#">»</a></li>
                 </ul>
               </div>
             </div>
             <div style="float:right;vertical-align:center;">
-              <a class="btn" href="#">náhodný</a>
-              <a href="#" class="btn">‹</a>
-              <a href="#" class="btn">›</a>
-              <a href="#" class="btn">přednášky</a>
+              <a class="btn" href="{% url ptrial.r.example random.pk %}">náhodný</a>
+              {% if prev %}
+                <a href="{% url ptrial.r.example prev.pk %}" class="btn">‹</a>
+                {%else%}
+                <a href="#" class="btn disabled">‹</a>
+              {%endif%}
+              {% if next %}
+                <a href="{% url ptrial.r.example next.pk %}" class="btn">›</a>
+                {%else%}
+                <a href="#" class="btn disabled">›</a>
+              {%endif%}
+              <a href="#" class="btn disabled">přednášky</a>
             </div>
           </div>
           <div style="clear:both;"></div>

@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
@@ -35,7 +37,10 @@ def subject_example_category_view(request, subject_uk, category_url, template="p
 def example_view(request, subject_uk, category_url, example_number, template="ptrial/example.html"):
     example = get_object_or_404(Example, category__subject__uk=subject_uk, category__url=category_url, number=example_number)
     return render_to_response(template,
-        {"example": example, },
+        {"example": example, 
+         "next": example.get_next(),
+         "prev": example.get_prev(), 
+         "random": random.choice(Example.objects.filter(category=example.category))},
         context_instance=RequestContext(request))
 
 def example_redirect(request, example_pk):
