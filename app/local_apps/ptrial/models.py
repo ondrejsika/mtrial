@@ -98,11 +98,12 @@ class Example(models.Model):
         unique_together = (("number", "category"), )
 
     def save(self, *args, **kwargs):
-        max_number = 0
-        for obj in Example.objects.all():
-            if obj.number > max_number:
-                max_number = obj.number
-        self.number = max_number+1
+        if not self.number:
+            max_number = 0
+            for obj in Example.objects.all():
+                if obj.number > max_number:
+                    max_number = obj.number
+            self.number = max_number+1
         return super(Example, self).save(*args, **kwargs)
 
 
