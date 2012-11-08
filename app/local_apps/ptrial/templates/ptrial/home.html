@@ -6,9 +6,8 @@
 <h1>pTrial</h1>
 <div class="row-fluid">
 {% for subject in subject_qs %}
-<div class="span4">
-    <h2>{{subject.name}}</h2>
-    <a href="{% url ptrial.subject subject.uk %}">Příklady</a>
+<div class="span2">
+    <a href="{% url ptrial.subject subject.uk %}" class=""><h2>{{subject.name}}</h2></a>
 </div>
 {% endfor %}
 </div>
