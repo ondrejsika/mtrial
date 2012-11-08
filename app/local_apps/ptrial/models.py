@@ -103,7 +103,7 @@ class Example(models.Model):
             if obj.number > max_number:
                 max_number = obj.number
         self.number = max_number+1
-        return super(Category, self).save(*args, **kwargs)
+        return super(Example, self).save(*args, **kwargs)
 
 
 
