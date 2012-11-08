@@ -41,11 +41,16 @@ class Category(models.Model):
     def url_path(self):
         str_path = []
         for obj in self.path():
+            obj.uk
             str_path.append(obj.uk)
         return "/".join(str_path)
 
+    def get_related(self):
+        if self.parent:
+            return self.parent.category_set.all()
+
     def __repr__(self):
-        return self.name
+        return u"%s" % self.name
 
     def __unicode__(self):
         return u"%s %s" % (self.subject.name, self.name_path())# self.tree().replace("/", " / "))

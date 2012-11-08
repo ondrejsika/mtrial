@@ -31,3 +31,16 @@ def subject_example_category_view(request, subject_uk, category_url, template="p
     return render_to_response(template,
         {"category": category, },
         context_instance=RequestContext(request))
+
+def example_view(request, subject_uk, category_url, example_pk, template="ptrial/example.html"):
+    example = get_object_or_404(Example, category__subject__uk=subject_uk, category__url=category_url, pk=example_pk)
+    return render_to_response(template,
+        {"example": example, },
+        context_instance=RequestContext(request))
+
+def example_redirect(request, example_pk):
+    example = get_object_or_404(Example, pk=example_pk)
+    return HttpResponseRedirect(reverse("ptrial.subject.example.category.example",
+                                         args= [example.category.subject.uk,
+                                                example.category.url,
+                                                example.pk, ], ))
