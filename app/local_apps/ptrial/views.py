@@ -26,7 +26,7 @@ def subject_example_view(request, subject_uk, template="ptrial/subject_example.h
         context_instance=RequestContext(request))
 
 
-def category_view(request, subject_uk, category_url, template="ptrial/category.html"):
+def subject_example_category_view(request, subject_uk, category_url, template="ptrial/subject_example_category.html"):
     category = get_object_or_404(Category, url=category_url, subject__uk=subject_uk)
     return render_to_response(template,
         {"category": category, },

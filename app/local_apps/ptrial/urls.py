@@ -13,6 +13,6 @@ urlpatterns = patterns('',
         subject_example_view, 
         name="ptrial.subject.example"),
     url(r'^(?P<subject_uk>[a-zA-Z0-9-]+)/priklady/(?P<category_url>[a-zA-Z0-9-/]+)/$',
-        category_view, 
-        name="ptrial.example.category"),
+        subject_example_category_view, 
+        name="ptrial.subject.example.category"),
 )

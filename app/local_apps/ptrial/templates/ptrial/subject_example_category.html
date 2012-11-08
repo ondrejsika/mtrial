@@ -5,7 +5,7 @@
   <li><a href="{% url ptrial.subject category.subject.uk %}">{{category.subject}}</a> <span class="divider">/</span></li>
   <li><a href="{% url ptrial.subject.example category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
   {% for item in category.path %}
-  <li><a href="{% url ptrial.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
+  <li><a href="{% url ptrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
   {% endfor %}
 </ul>
 <h1>{{category.name}}</h1>
