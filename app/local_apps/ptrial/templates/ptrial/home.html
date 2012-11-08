@@ -1,4 +1,12 @@
 {%extends "ptrial/base.html"%}
 {% block base_content %}
-<h1>M1</h1>
+<h1>pTrial</h1>
+<div class="row-fluid">
+{% for subject in subject_qs %}
+<div class="span4">
+    <h2>{{subject.name}}</h2>
+    <a href="{% url ptrial.subject subject.uk %}">Příklady</a>
+</div>
+{% endfor %}
+</div>
 {% endblock base_content %}

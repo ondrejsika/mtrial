@@ -1,0 +1,17 @@
+{%extends "ptrial/base.html"%}
+{% block base_content %}
+<h1>{{subject.name}} příklady</h1>
+<div class="row-fluid">
+<div class="span12">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+{%for category in subject.category_set.all %}
+<li><a href="{% url ptrial.example.category category.subject.uk category.url %}">{{category.name_path}}</a></li>
+{% endfor %}
+
+
+            </ul>
+          </div><!--/.well -->
+        </div>
+</div>
+{% endblock base_content %}

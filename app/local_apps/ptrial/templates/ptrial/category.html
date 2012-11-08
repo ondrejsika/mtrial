@@ -1,0 +1,16 @@
+{%extends "ptrial/base.html"%}
+{% block base_content %}
+<ul class="breadcrumb">
+  <li><a href="#">{{category.subject}}</a> <span class="divider">/</span></li>
+  <li>Příklady <span class="divider">/</span></li>
+  {% for item in category.path %}
+  <li><a href="{% url ptrial.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
+  {% endfor %}
+</ul>
+<h1>{{category.name}}</h1>
+<ul>
+{% for category in subject_qs.0.category_set.all %}
+<li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock base_content %}

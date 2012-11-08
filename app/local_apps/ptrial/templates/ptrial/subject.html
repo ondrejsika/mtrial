@@ -1,0 +1,14 @@
+{%extends "ptrial/base.html"%}
+{% block base_content %}
+<h1>{{subject.name}}</h1>
+<div class="row-fluid">
+<div class="span4">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><a href="{% url ptrial.subject.example subject.uk %}">Příklady</a></li>
+              <li>Přednášky</li>
+            </ul>
+          </div><!--/.well -->
+        </div>
+</div>
+{% endblock base_content %}
