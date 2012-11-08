@@ -1,8 +1,9 @@
 {%extends "ptrial/base.html"%}
 {% block base_content %}
 <ul class="breadcrumb">
-  <li><a href="#">{{category.subject}}</a> <span class="divider">/</span></li>
-  <li>Příklady <span class="divider">/</span></li>
+  <li><a href="/">pTrial</a> <span class="divider">/</span></li>
+  <li><a href="{% url ptrial.subject category.subject.uk %}">{{category.subject}}</a> <span class="divider">/</span></li>
+  <li><a href="{% url ptrial.subject.example category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
   {% for item in category.path %}
   <li><a href="{% url ptrial.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
   {% endfor %}
