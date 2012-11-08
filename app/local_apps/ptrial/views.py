@@ -32,8 +32,8 @@ def subject_example_category_view(request, subject_uk, category_url, template="p
         {"category": category, },
         context_instance=RequestContext(request))
 
-def example_view(request, subject_uk, category_url, example_pk, template="ptrial/example.html"):
-    example = get_object_or_404(Example, category__subject__uk=subject_uk, category__url=category_url, pk=example_pk)
+def example_view(request, subject_uk, category_url, example_number, template="ptrial/example.html"):
+    example = get_object_or_404(Example, category__subject__uk=subject_uk, category__url=category_url, number=example_number)
     return render_to_response(template,
         {"example": example, },
         context_instance=RequestContext(request))
@@ -43,4 +43,4 @@ def example_redirect(request, example_pk):
     return HttpResponseRedirect(reverse("ptrial.subject.example.category.example",
                                          args= [example.category.subject.uk,
                                                 example.category.url,
-                                                example.pk, ], ))
+                                                example.number, ], ))

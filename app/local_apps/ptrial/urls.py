@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^(?P<subject_uk>[a-zA-Z0-9-]+)/priklady/(?P<category_url>[a-zA-Z0-9-/]+)/$',
         subject_example_category_view, 
         name="ptrial.subject.example.category"),
-    url(r'^(?P<subject_uk>[a-zA-Z0-9-]+)/priklady/(?P<category_url>[a-zA-Z0-9-/]+)/(?P<example_pk>\d+)$',
+    url(r'^(?P<subject_uk>[a-zA-Z0-9-]+)/priklady/(?P<category_url>[a-zA-Z0-9-/]+)/(?P<example_number>\d+)$',
        example_view, 
         name="ptrial.subject.example.category.example"),
 

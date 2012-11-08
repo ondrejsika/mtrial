@@ -61,6 +61,7 @@ class Category(models.Model):
         return super(Category, self).save(*args, **kwargs)
 
 class Example(models.Model):
+    number = models.IntegerField()
     category = models.ForeignKey(Category)
 
     entering = models.TextField()
@@ -69,6 +70,9 @@ class Example(models.Model):
 
     def __unicode__(self):
         return u"%s (%i)" % (self.category, self.pk, )
+
+    class Meta:
+        unique_together = (("number", "category"), )
 
 
 
