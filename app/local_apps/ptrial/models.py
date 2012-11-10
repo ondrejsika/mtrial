@@ -23,6 +23,18 @@ class Category(models.Model):
     parent = models.ForeignKey('self', blank=True, null=True)
     name = models.CharField(max_length=32)
 
+    def get_related(self):
+        objs = []
+        if self.parent:
+            for obj in self.parent.category_set.all():
+                if obj.pk != self.pk:
+                    objs.append(obj)
+        else:
+            for obj in self.subject.category_set.all():
+                if obj.pk != self.pk and not obj.parent:
+                    objs.append(obj)
+        return objs
+
     def path(self):
         path = [self]
         obj = self
@@ -44,10 +56,6 @@ class Category(models.Model):
             obj.uk
             str_path.append(obj.uk)
         return "/".join(str_path)
-
-    def get_related(self):
-        if self.parent:
-            return self.parent.category_set.all()
 
     def __repr__(self):
         return u"%s" % self.name
