@@ -38,6 +38,23 @@ class Category(models.Model):
     def get_child(self):
         return self.category_set.all()
 
+    def get_child_tree(self):
+        tree = []
+        for obj in self.get_child():
+            tree.append(obj)
+            for obj2 in obj.get_child():
+                tree.append(obj2)
+                for obj3 in obj2.get_child():
+                    tree.append(obj3)
+                    for obj4 in obj3.get_child():
+                        tree.append(obj4)
+                        for obj5 in obj4.get_child():
+                            tree.append(obj5)
+        return tree
+
+    def has_child(self):
+        return bool(self.get_child().count())
+
     def get_first_example(self):
         try:
             return self.example_set.order_by("number")[0]
@@ -46,9 +63,6 @@ class Category(models.Model):
 
     def get_sum_examples(self):
         return self.example_set.all().count()
-
-    def has_child(self):
-        return bool(self.get_child().count())
 
     def path(self):
         path = [self]
@@ -76,7 +90,7 @@ class Category(models.Model):
         return u"%s" % self.name
 
     def __unicode__(self):
-        return u"%s %s" % (self.subject.name, self.name_path())# self.tree().replace("/", " / "))
+        return u"%s %s" % (self.subject.name, self.name_path())
 
     def save(self, *args, **kwargs):
         self.uk = slugify(self.name)
