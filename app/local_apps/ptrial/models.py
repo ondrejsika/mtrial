@@ -35,6 +35,15 @@ class Category(models.Model):
                     objs.append(obj)
         return objs
 
+    def get_child(self):
+        return self.category_set.all()
+
+    def get_first_example(self):
+        return self.example_set.order_by("number")[0]
+
+    def has_child(self):
+        return bool(self.get_child().count())
+
     def path(self):
         path = [self]
         obj = self
