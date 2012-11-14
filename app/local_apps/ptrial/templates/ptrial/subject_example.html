@@ -2,6 +2,7 @@
 {% block base_content %}
 <ul class="breadcrumb">
   <li><a href="/">mTrial</a> <span class="divider">/</span></li>
+  <li><a href="{% url ptrial.subject subject.uk %}">{{subject.name}}</a> <span class="divider">/</span></li>
   <li><a href="{% url ptrial.subject.example subject.uk %}">Příklady</a> </li>
 </ul>
 <h1>{{subject.name}} příklady</h1>
