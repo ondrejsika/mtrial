@@ -8,7 +8,7 @@
   {% for item in example.category.path %}
   <li><a href="{% url ptrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> <span class="divider">/</span></li>
   {% endfor %}
-  <li>příklad</li>
+  <li>příklad {{example.number}} z {{example.category.get_sum_examples}}</li>
 </ul>
 
 <div class="row-fluid">

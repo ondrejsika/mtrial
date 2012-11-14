@@ -44,6 +44,9 @@ class Category(models.Model):
         except IndexError:
             return None
 
+    def get_sum_examples(self):
+        return self.example_set.all().count()
+
     def has_child(self):
         return bool(self.get_child().count())
 
