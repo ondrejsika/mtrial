@@ -39,7 +39,10 @@ class Category(models.Model):
         return self.category_set.all()
 
     def get_first_example(self):
-        return self.example_set.order_by("number")[0]
+        try:
+            return self.example_set.order_by("number")[0]
+        except IndexError:
+            return None
 
     def has_child(self):
         return bool(self.get_child().count())

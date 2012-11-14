@@ -30,7 +30,7 @@ def subject_example_view(request, subject_uk, template="ptrial/subject_example.h
 
 def subject_example_category_view(request, subject_uk, category_url, template="ptrial/subject_example_category.html"):
     category = get_object_or_404(Category, url=category_url, subject__uk=subject_uk)
-    if not category.has_child():
+    if not category.has_child() and category.get_first_example():
         return HttpResponseRedirect(reverse("ptrial.r.example", args=[category.get_first_example().pk]))
     return render_to_response(template,
         {"category": category, },
