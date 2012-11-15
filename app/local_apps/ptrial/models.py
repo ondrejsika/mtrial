@@ -90,7 +90,7 @@ class Category(models.Model):
         return u"%s" % self.name
 
     def __unicode__(self):
-        return u"%s %s" % (self.subject.name, self.name_path())
+        return u"%s %s (%i)" % (self.subject.name, self.name_path(), self.get_sum_examples())
 
     def save(self, *args, **kwargs):
         self.uk = slugify(self.name)

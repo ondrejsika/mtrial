@@ -11,7 +11,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 {%for category in subject.category_set.all %}
-<li><a href="{% url ptrial.subject.example.category category.subject.uk category.url %}">{{category.name_path}}</a></li>
+<li><a href="{% url ptrial.subject.example.category category.subject.uk category.url %}">{{category.name_path}} ({{category.get_sum_examples}})</a></li>
 {% endfor %}
 
 

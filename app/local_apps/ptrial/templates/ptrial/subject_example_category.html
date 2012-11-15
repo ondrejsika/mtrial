@@ -19,7 +19,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Podkategorie</li>
 {%for cat in category.get_child_tree %}
-<li><a href="{% url ptrial.subject.example.category cat.subject.uk cat.url %}">{{cat.name_path}}</a></li>
+<li><a href="{% url ptrial.subject.example.category cat.subject.uk cat.url %}">{{cat.name_path}} ({{category.get_sum_examples}})</a></li>
 {% endfor %}
 
 
