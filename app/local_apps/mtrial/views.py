@@ -9,7 +9,6 @@ from models import Example, Category, Subject
 
 def home_view(request, template="mtrial/home.html"):
     subject_qs = Subject.objects.all()
-    category = Category.objects.get(pk=1)
     return render_to_response(template,
         {"subject_qs":subject_qs, },
         context_instance=RequestContext(request))
