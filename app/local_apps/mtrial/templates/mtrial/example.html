@@ -1,12 +1,12 @@
-{%extends "ptrial/base.html"%}
-{%block mathjax %}{%include "ptrial/mathjax_head.html"%}{%endblock%}
+{%extends "mtrial/base.html"%}
+{%block mathjax %}{%include "mtrial/mathjax_head.html"%}{%endblock%}
 {% block base_content %}
 <ul class="breadcrumb">
   <li><a href="/">mTrial</a> <span class="divider">/</span></li>
-  <li><a href="{% url ptrial.subject example.category.subject.uk %}">{{example.category.subject}}</a> <span class="divider">/</span></li>
-  <li><a href="{% url ptrial.subject.example example.category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
+  <li><a href="{% url mtrial.subject example.category.subject.uk %}">{{example.category.subject}}</a> <span class="divider">/</span></li>
+  <li><a href="{% url mtrial.subject.example example.category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
   {% for item in example.category.path %}
-  <li><a href="{% url ptrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> <span class="divider">/</span></li>
+  <li><a href="{% url mtrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> <span class="divider">/</span></li>
   {% endfor %}
   <li>příklad {{example.number}} z {{example.category.get_sum_examples}}</li>
 </ul>
@@ -17,7 +17,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Related</li>
               {% for category in example.category.get_related %}
-              <li {%if example.category.name == category.name %}class="active"{%endif%}><a href="{% url ptrial.subject.example.category category.subject.uk category.url %}">{{category.name}}</a></li>
+              <li {%if example.category.name == category.name %}class="active"{%endif%}><a href="{% url mtrial.subject.example.category category.subject.uk category.url %}">{{category.name}}</a></li>
               {% endfor %}
             </ul>
           </div><!--/.well -->
@@ -29,21 +29,21 @@
                 <ul>
                   <li><a href="#">«</a></li>
                     {% for obj in example.get_nav %}
-                    <li {% if obj == example %}class="active"{%endif%}><a href="{% url ptrial.r.example obj.pk %}">{{obj.number}}</a></li>
+                    <li {% if obj == example %}class="active"{%endif%}><a href="{% url mtrial.r.example obj.pk %}">{{obj.number}}</a></li>
                     {% endfor %}
                   <li><a href="#">»</a></li>
                 </ul>
               </div>
             </div>
             <div style="float:right;vertical-align:center;">
-              <a class="btn" href="{% url ptrial.r.example random.pk %}">náhodný</a>
+              <a class="btn" href="{% url mtrial.r.example random.pk %}">náhodný</a>
               {% if prev %}
-                <a href="{% url ptrial.r.example prev.pk %}" class="btn">‹</a>
+                <a href="{% url mtrial.r.example prev.pk %}" class="btn">‹</a>
                 {%else%}
                 <a href="#" class="btn disabled">‹</a>
               {%endif%}
               {% if next %}
-                <a href="{% url ptrial.r.example next.pk %}" class="btn">›</a>
+                <a href="{% url mtrial.r.example next.pk %}" class="btn">›</a>
                 {%else%}
                 <a href="#" class="btn disabled">›</a>
               {%endif%}
@@ -62,7 +62,7 @@
               <!-- 
               <a class="btn btn-large">Wolfram</a>
               -->
-              <a class="btn btn-large" target="blank" href="https://www.facebook.com/sharer.php?u=http://mtrial.zcu.cz{% url ptrial.r.example example.pk %}&amp;display=popup">Zeptat se na Facebooku</a>
+              <a class="btn btn-large" target="blank" href="https://www.facebook.com/sharer.php?u=http://mtrial.zcu.cz{% url mtrial.r.example example.pk %}&amp;display=popup">Zeptat se na Facebooku</a>
             </p>
           </div>
           <div id="result" style="display: none; ">

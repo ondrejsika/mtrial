@@ -9,61 +9,61 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Subject'
-        db.create_table('ptrial_subject', (
+        db.create_table('mtrial_subject', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('url_key', self.gf('django.db.models.fields.SlugField')(max_length=8)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=8)),
         ))
-        db.send_create_signal('ptrial', ['Subject'])
+        db.send_create_signal('mtrial', ['Subject'])
 
         # Adding model 'Category'
-        db.create_table('ptrial_category', (
+        db.create_table('mtrial_category', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('url_key', self.gf('django.db.models.fields.SlugField')(max_length=8)),
-            ('parrent', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ptrial.Category'], null=True, blank=True)),
+            ('parrent', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['mtrial.Category'], null=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=8)),
         ))
-        db.send_create_signal('ptrial', ['Category'])
+        db.send_create_signal('mtrial', ['Category'])
 
         # Adding model 'Example'
-        db.create_table('ptrial_example', (
+        db.create_table('mtrial_example', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ptrial.Category'])),
+            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['mtrial.Category'])),
             ('entering', self.gf('django.db.models.fields.TextField')()),
             ('procedure', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('result', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
         ))
-        db.send_create_signal('ptrial', ['Example'])
+        db.send_create_signal('mtrial', ['Example'])
 
 
     def backwards(self, orm):
         # Deleting model 'Subject'
-        db.delete_table('ptrial_subject')
+        db.delete_table('mtrial_subject')
 
         # Deleting model 'Category'
-        db.delete_table('ptrial_category')
+        db.delete_table('mtrial_category')
 
         # Deleting model 'Example'
-        db.delete_table('ptrial_example')
+        db.delete_table('mtrial_example')
 
 
     models = {
-        'ptrial.category': {
+        'mtrial.category': {
             'Meta': {'object_name': 'Category'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '8'}),
-            'parrent': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['ptrial.Category']", 'null': 'True', 'blank': 'True'}),
+            'parrent': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['mtrial.Category']", 'null': 'True', 'blank': 'True'}),
             'url_key': ('django.db.models.fields.SlugField', [], {'max_length': '8'})
         },
-        'ptrial.example': {
+        'mtrial.example': {
             'Meta': {'object_name': 'Example'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['ptrial.Category']"}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['mtrial.Category']"}),
             'entering': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'procedure': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'result': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'})
         },
-        'ptrial.subject': {
+        'mtrial.subject': {
             'Meta': {'object_name': 'Subject'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '8'}),
@@ -71,4 +71,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['ptrial']
+    complete_apps = ['mtrial']

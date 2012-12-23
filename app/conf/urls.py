@@ -1,3 +1,3 @@
 urlpatterns += patterns('', 
-    url(r'^', include("ptrial.urls")),
+    url(r'^', include("mtrial.urls")),
 )

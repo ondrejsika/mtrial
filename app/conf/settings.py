@@ -1,2 +1,2 @@
 DEBUG = True
-INSTALLED_APPS += ("ptrial", )
+INSTALLED_APPS += ("mtrial", )

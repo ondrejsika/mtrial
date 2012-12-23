@@ -1,15 +1,15 @@
-{%extends "ptrial/base.html"%}
+{%extends "mtrial/base.html"%}
 {% block base_content %}
 <ul class="breadcrumb">
   <li><a href="/">mTrial</a> <span  class="divider">/</span></li>
-  <li><a href="{% url ptrial.subject subject.uk %}">{{subject.name}}</a> </li>
+  <li><a href="{% url mtrial.subject subject.uk %}">{{subject.name}}</a> </li>
 </ul>
 <h1>{{subject.name}}</h1>
 <div class="row-fluid">
 <div class="span4">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li><a href="{% url ptrial.subject.example subject.uk %}">Příklady</a></li>
+              <li><a href="{% url mtrial.subject.example subject.uk %}">Příklady</a></li>
               <li>Přednášky</li>
             </ul>
           </div><!--/.well -->

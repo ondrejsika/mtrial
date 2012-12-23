@@ -1,11 +1,11 @@
-{%extends "ptrial/base.html"%}
+{%extends "mtrial/base.html"%}
 {% block base_content %}
 <ul class="breadcrumb">
   <li><a href="/">mTrial</a> <span class="divider">/</span></li>
-  <li><a href="{% url ptrial.subject category.subject.uk %}">{{category.subject}}</a> <span class="divider">/</span></li>
-  <li><a href="{% url ptrial.subject.example category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
+  <li><a href="{% url mtrial.subject category.subject.uk %}">{{category.subject}}</a> <span class="divider">/</span></li>
+  <li><a href="{% url mtrial.subject.example category.subject.uk %}">Příklady</a> <span class="divider">/</span></li>
   {% for item in category.path %}
-  <li><a href="{% url ptrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
+  <li><a href="{% url mtrial.subject.example.category item.subject.uk item.url %}">{{item.name}}</a> {% if item.name != category.name%}<span class="divider">/</span>{%endif%}</li>
   {% endfor %}
 </ul>
 <h1>{{category.name}}</h1>
@@ -19,7 +19,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Podkategorie</li>
 {%for cat in category.get_child_tree %}
-<li><a href="{% url ptrial.subject.example.category cat.subject.uk cat.url %}">{{cat.name_path}} ({{category.get_sum_examples}})</a></li>
+<li><a href="{% url mtrial.subject.example.category cat.subject.uk cat.url %}">{{cat.name_path}} ({{category.get_sum_examples}})</a></li>
 {% endfor %}
 
 
@@ -30,7 +30,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Příklady</li>
 {%for example in category.example_set.all %}
-<li><a href="{%url ptrial.r.example example.pk%}">{{example.pk}}</a></li>
+<li><a href="{%url mtrial.r.example example.pk%}">{{example.pk}}</a></li>
 {% endfor %}
 
 
