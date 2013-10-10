@@ -58,7 +58,9 @@
             </div>
             <div class="hs40"></div>
             <p>
-              <a class="btn btn-primary btn-large" id="show-result">Výsledky</a>
+              {% if example.result %}
+                <a class="btn btn-primary btn-large" id="show-result">Výsledky</a>
+              {% endif %}
               <!-- 
               <a class="btn btn-large">Wolfram</a>
               -->
