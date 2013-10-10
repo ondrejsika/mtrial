@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os
 import sys
 
@@ -14,12 +13,10 @@ except IOError:
     print "E: virtualenv must be installed to PROJECT_ROOT/env"
 # END activacte virtualenv
 
-if __name__ == "__main__":
-    if os.path.exists(normpath(PROJECT_ROOT, "project", "settings.py")):
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
-    else:
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.root_settings")
+if os.path.exists(normpath(PROJECT_ROOT, "project", "settings.py")):
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.root_settings")
 
-    from django.core.management import execute_from_command_line
-
-    execute_from_command_line(sys.argv)
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()

@@ -1,8 +1,9 @@
 *.pyc
-*.pyo
+*.db
 
 env/*
-app/static/*
-app/uploads/*
-app/tmp/*
-app/db/*
+db/*
+static/static/*
+static/uploads/*
+
+!.gitkeep

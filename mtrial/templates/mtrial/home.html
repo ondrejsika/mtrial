@@ -8,7 +8,7 @@
 {% for subject in subject_qs %}
 <div class="span2">
     <div style="text-align:center;" class="hero-unit">
-        <a href="{% url mtrial.subject subject.uk %}" class=""><h2>{{subject.name}}</h2></a>
+        <a href="{% url "mtrial.subject" subject.uk %}" class=""><h2>{{subject.name}}</h2></a>
     </div>
 </div>
 {% endfor %}

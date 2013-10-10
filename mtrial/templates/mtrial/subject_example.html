@@ -2,8 +2,8 @@
 {% block base_content %}
 <ul class="breadcrumb">
   <li><a href="/">mTrial</a> <span class="divider">/</span></li>
-  <li><a href="{% url mtrial.subject subject.uk %}">{{subject.name}}</a> <span class="divider">/</span></li>
-  <li><a href="{% url mtrial.subject.example subject.uk %}">Příklady</a> </li>
+  <li><a href="{% url "mtrial.subject" subject.uk %}">{{subject.name}}</a> <span class="divider">/</span></li>
+  <li><a href="{% url "mtrial.subject.example" subject.uk %}">Příklady</a> </li>
 </ul>
 <h1>{{subject.name}} příklady</h1>
 <div class="row-fluid">
@@ -11,7 +11,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 {%for category in subject.category_set.all %}
-<li><a href="{% url mtrial.subject.example.category category.subject.uk category.url %}">{{category.name_path}} ({{category.get_sum_examples}})</a></li>
+<li><a href="{% url "mtrial.subject.example.category" category.subject.uk category.url %}">{{category.name_path}} ({{category.get_sum_examples}})</a></li>
 {% endfor %}
 
 
