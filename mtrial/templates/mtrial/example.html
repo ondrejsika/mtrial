@@ -64,7 +64,10 @@
               <!-- 
               <a class="btn btn-large">Wolfram</a>
               -->
-              <a class="btn btn-large" target="blank" href="https://www.facebook.com/sharer.php?u=http://mtrial.zcu.cz{% url "mtrial.r.example" example.pk %}&amp;display=popup">Zeptat se na Facebooku</a>
+              <a class="btn btn-large" target="blank" id="share-fb">Zeptat se na Facebooku</a>
+              <script type="text/javascript">
+              window.document.getElementById("share-fb").href = "https://www.facebook.com/sharer.php?u="+window.location.href+"&amp;display=popup";
+              </script>
             </p>
           </div>
           <div id="result" style="display: none; ">
